@@ -1,0 +1,2 @@
+# 背景减除演示所需依赖（仅 OpenCV）
+opencv-python>=4.5
