@@ -1,0 +1,3 @@
+# 本演示所需依赖（anisotropicDiffusion 属于 contrib 模块，必须装 contrib 版）
+opencv-contrib-python>=4.5
+numpy>=1.20

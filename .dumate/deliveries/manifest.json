@@ -16,5 +16,17 @@
     "session": "ses_gffe5e118f9885ffe9JYRPGWycCu63g",
     "filename": "flow.mp4",
     "delivered": "/home/kangy/MyProjects/OpenCV-项目书/底层算法演示/光流法/assets/flow.mp4"
+  },
+  {
+    "time": 1795076824518,
+    "session": "ses_gffe5e118f9885ffe9JYRPGWycCu63g",
+    "filename": "checkerboard.png",
+    "delivered": "/home/kangy/MyProjects/OpenCV-项目书/底层算法演示/角点亚像素/assets/checkerboard.png"
+  },
+  {
+    "time": 1795076824518,
+    "session": "ses_gffe5e118f9885ffe9JYRPGWycCu63g",
+    "filename": "corner_subpixel_check.png",
+    "delivered": "/tmp/corner_subpixel_check.png"
   }
 ]

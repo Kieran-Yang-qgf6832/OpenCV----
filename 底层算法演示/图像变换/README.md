@@ -20,3 +20,15 @@ cv2.LUT()
 
 ## 素材
 `assets/`：`portrait.png`
+
+## 运行
+```bash
+# C++（参数需用 --key=value 形式）
+cd C++ && cmake -B build -DCMAKE_BUILD_TYPE=Release && cmake --build build -j
+./build/image_transform --gamma=0.4
+
+# Python
+cd Python && pip install -r requirements.txt && python image_transform.py --gamma 0.4
+```
+参数：`-i/--input` 输入图像（缺省 `assets/portrait.png`）、`-o/--output` 输出路径、`-g/--gamma` 伽马主参数、`-d/--display` 弹窗。
+结果默认写入 `output/image_transform.png`，图中按 原图 / 对数 / 伽马 / 恒等 / 反伽马 / 百分位拉伸 六宫格排列。

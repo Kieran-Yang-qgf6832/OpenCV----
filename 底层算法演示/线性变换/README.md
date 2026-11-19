@@ -20,3 +20,15 @@ cv2.convertScaleAbs()
 
 ## 素材
 `assets/`：`low_contrast.png`、`portrait.png`
+
+## 运行
+```bash
+# C++（参数需用 --key=value 形式）
+cd C++ && cmake -B build -DCMAKE_BUILD_TYPE=Release && cmake --build build -j
+./build/linear_transform --alpha=1.6 --beta=0 --display=1
+
+# Python
+cd Python && pip install -r requirements.txt && python linear_transform.py --alpha 1.6 --beta 0 --display
+```
+参数：`-i/--input` 输入图像（缺省 `assets/low_contrast.png`）、`-r/--reference` 参考图像（缺省 `assets/portrait.png`）、`-o/--output` 输出路径、`-a/--alpha` 增益、`-b/--beta` 偏置、`-d/--display` 弹窗并启用滑动条实时调节。
+结果默认写入 `output/linear_transform.png`。`convertScaleAbs` 语义是 `|alpha*x+beta|`，负增益会因取绝对值失真，输出图最后一格给出严格截断版本作对照。

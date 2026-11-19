@@ -20,3 +20,15 @@ cv2.getAffineTransform(), cv2.warpAffine()
 
 ## 素材
 `assets/`：`scene.png`
+
+## 运行
+```bash
+# C++（参数需用 --key=value 形式）
+cd C++ && cmake -B build -DCMAKE_BUILD_TYPE=Release && cmake --build build -j
+./build/affine_transform --angle=25 --scale=0.85
+
+# Python
+cd Python && pip install -r requirements.txt && python affine_transform.py --angle 25 --scale 0.85
+```
+参数：`-i/--input` 输入图像、`-o/--output` 输出路径、`-a/--angle` 旋转角度、`-s/--scale` 旋转时的缩放、`-d/--display` 弹窗。
+结果默认写入 `output/affine_transform.png`，包含旋转/缩放/平移/三点剪切/链式变换与两种插值方式的对比。

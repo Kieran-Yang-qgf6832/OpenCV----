@@ -20,3 +20,15 @@ cv2.findHomography(), cv2.warpPerspective()
 
 ## 素材
 `assets/`：`poster.png`、`poster_perspective.png`
+
+## 运行
+```bash
+# C++（参数需用 --key=value 形式）
+cd C++ && cmake -B build -DCMAKE_BUILD_TYPE=Release && cmake --build build -j
+./build/homography
+
+# Python
+cd Python && pip install -r requirements.txt && python homography.py
+```
+参数：`-r/--ref` 参考图、`-s/--scene` 场景图（缺省读 `assets/`）、`-o/--output` 输出路径、`-c/--ratio` Lowe 比率、`-t/--thresh` RANSAC 重投影阈值、`-d/--display` 弹窗。
+结果默认写入 `output/homography.png`，并在终端打印匹配数、内点数与归一化后的 H 矩阵。
