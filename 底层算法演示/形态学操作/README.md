@@ -20,3 +20,16 @@ cv2.erode(), cv2.dilate(), cv2.morphologyEx()
 
 ## 素材
 `assets/`：`binary.png`、`text.png`
+
+## 运行
+```bash
+# C++（参数需用 --key=value 形式）
+cd C++ && cmake -B build -DCMAKE_BUILD_TYPE=Release && cmake --build build -j
+./build/morphology
+
+# Python
+cd Python && pip install -r requirements.txt && python morphology.py
+```
+参数：`-i/--input` 二值图、`-o/--output` 输出路径、`-k/--kernel` 结构元素尺寸、`-s/--shape` rect/ellipse/cross、`-d/--display` 弹窗。
+前景像素数实测：原图 54551 → 腐蚀 1161 → 膨胀 162281 → 开运算 5093 → 闭运算 87785 → 梯度 161120。
+腐蚀让前景大幅收缩、膨胀大幅扩张，开闭运算分别对应「去噪点」与「填孔洞」。

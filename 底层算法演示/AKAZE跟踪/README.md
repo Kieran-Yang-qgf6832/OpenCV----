@@ -20,3 +20,16 @@ cv2.AKAZE_create(), cv2.BFMatcher()
 
 ## 素材
 `assets/`：`frame_01.png`、`frame_02.png`（单帧静图）、`tracking.mp4`（100 帧 / 25 fps / 4 秒，镜头平移并轻微缩小的连续序列）
+
+## 运行
+```bash
+# C++（参数需用 --key=value 形式）
+cd C++ && cmake -B build -DCMAKE_BUILD_TYPE=Release && cmake --build build -j
+./build/akaze_tracking
+
+# Python
+cd Python && pip install -r requirements.txt && python akaze_tracking.py
+```
+参数：`-i/--input` 视频路径、`-o/--output` 输出目录、`-r/--ratio` 比率、`-d/--display` 弹窗。
+输入为 `tracking.mp4`（100 帧），实测 99 帧全部跟踪成功（100%），首帧关键点 4818。
+输出 `output/akaze_tracking.mp4`（带跟踪框的视频）与 `output/akaze_tracking.png`（4 帧采样拼接）。

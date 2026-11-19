@@ -20,3 +20,15 @@ cv2.morphologyEx(), cv2.getStructuringElement()
 
 ## 素材
 `assets/`：`table.png`
+
+## 运行
+```bash
+# C++（参数需用 --key=value 形式）
+cd C++ && cmake -B build -DCMAKE_BUILD_TYPE=Release && cmake --build build -j
+./build/line_detection_morphology
+
+# Python
+cd Python && pip install -r requirements.txt && python line_detection_morphology.py
+```
+参数：`-i/--input` 输入图、`-o/--output` 输出路径、`-l/--lineLen` 结构元素长度、`-n/--minLen` 最小线长、`-d/--display` 弹窗。
+自动取结构元素长度 40、最小线长 51；实测提取水平线 14 段、垂直线 16 段。

@@ -1,0 +1,3 @@
+# 本演示所需依赖
+opencv-python>=4.5
+numpy>=1.20

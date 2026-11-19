@@ -20,3 +20,19 @@ cv2.pyrDown(), cv2.pyrUp()
 
 ## 素材
 `assets/`：`skyline.png`
+
+## 运行
+```bash
+# C++（参数需用 --key=value 形式）
+cd C++ && cmake -B build -DCMAKE_BUILD_TYPE=Release && cmake --build build -j
+./build/image_pyramid --levels=3
+
+# Python
+cd Python && pip install -r requirements.txt && python image_pyramid.py --levels 3
+```
+参数：`-i/--input` 输入图像、`-o/--output` 输出路径、`-l/--levels` 金字塔层数（不含第 0 层）、`-d/--display` 弹窗。
+
+输出六宫格：原图 / level1 / level2 / 拉普拉斯层 / 重建图 / 残差（放大 8 倍）。
+实测重建 PSNR ≈ 97.5 dB，说明拉普拉斯金字塔可近无损重建。
+**注意**：上采样在计算拉普拉斯与在重建阶段必须用同一精度（都走浮点或都走整数），
+否则两处的舍入差异会把 PSNR 从 97 dB 拉到 56 dB。
