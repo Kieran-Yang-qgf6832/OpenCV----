@@ -17,3 +17,6 @@ cv2.morphologyEx(MORPH_HITMISS)
 
 ## 输出
 匹配位置标记
+
+## 素材
+`assets/`：`binary.png`

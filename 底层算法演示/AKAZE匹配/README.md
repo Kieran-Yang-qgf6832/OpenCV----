@@ -17,3 +17,6 @@ cv2.AKAZE_create(), cv2.BFMatcher()
 
 ## 输出
 匹配点对
+
+## 素材
+`assets/`：`scene.png`、`scene_rotated.png`

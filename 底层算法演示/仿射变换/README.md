@@ -17,3 +17,6 @@ cv2.getAffineTransform(), cv2.warpAffine()
 
 ## 输出
 变换后图像
+
+## 素材
+`assets/`：`scene.png`

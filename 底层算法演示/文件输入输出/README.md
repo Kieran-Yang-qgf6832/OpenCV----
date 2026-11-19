@@ -17,3 +17,6 @@ cv2.imread(), cv2.imwrite(), cv2.FileStorage()
 
 ## 输出
 处理结果文件
+
+## 素材
+`assets/`：`image.png`

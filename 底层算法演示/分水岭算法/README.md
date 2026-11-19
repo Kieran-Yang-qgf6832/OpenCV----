@@ -17,3 +17,6 @@ cv2.watershed()
 
 ## 输出
 分割标记图
+
+## 素材
+`assets/`：`coins.png`

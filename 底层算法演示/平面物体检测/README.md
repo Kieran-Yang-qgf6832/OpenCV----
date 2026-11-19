@@ -17,3 +17,6 @@ cv2.findHomography(), cv2.perspectiveTransform()
 
 ## 输出
 物体位置和姿态
+
+## 素材
+`assets/`：`scene.png`、`template.png`

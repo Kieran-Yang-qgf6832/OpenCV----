@@ -17,3 +17,6 @@ cv2.convertScaleAbs()
 
 ## 输出
 变换后图像
+
+## 素材
+`assets/`：`low_contrast.png`、`portrait.png`

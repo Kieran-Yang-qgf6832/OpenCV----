@@ -17,3 +17,6 @@ cv2.inpaint()
 
 ## 输出
 修复后图像
+
+## 素材
+`assets/`：`damaged.png`、`mask.png`、`photo.png`

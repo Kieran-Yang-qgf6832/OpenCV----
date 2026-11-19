@@ -17,3 +17,6 @@ cv2.LUT()
 
 ## 输出
 变换后图像
+
+## 素材
+`assets/`：`portrait.png`

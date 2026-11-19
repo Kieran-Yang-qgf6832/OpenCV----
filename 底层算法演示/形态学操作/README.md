@@ -17,3 +17,6 @@ cv2.erode(), cv2.dilate(), cv2.morphologyEx()
 
 ## 输出
 处理后图像
+
+## 素材
+`assets/`：`binary.png`、`text.png`

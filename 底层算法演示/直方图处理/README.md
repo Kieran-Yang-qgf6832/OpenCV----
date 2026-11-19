@@ -17,3 +17,6 @@ cv2.calcHist(), cv2.equalizeHist(), cv2.createCLAHE()
 
 ## 输出
 增强后图像
+
+## 素材
+`assets/`：`haze.png`

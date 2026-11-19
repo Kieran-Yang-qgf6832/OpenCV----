@@ -17,3 +17,6 @@ cv2.FlannBasedMatcher()
 
 ## 输出
 高质量匹配
+
+## 素材
+`assets/`：`scene.png`、`scene_rotated.png`

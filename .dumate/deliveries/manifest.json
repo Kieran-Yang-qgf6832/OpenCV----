@@ -1,0 +1,20 @@
+[
+  {
+    "time": 1795070795941,
+    "session": "ses_gffe5e118f9885ffe9JYRPGWycCu63g",
+    "filename": "algo_assets_manifest.csv",
+    "delivered": "/tmp/algo_assets_manifest.csv"
+  },
+  {
+    "time": 1795071339532,
+    "session": "ses_gffe5e118f9885ffe9JYRPGWycCu63g",
+    "filename": "tracking.mp4",
+    "delivered": "/home/kangy/MyProjects/OpenCV-项目书/底层算法演示/AKAZE跟踪/assets/tracking.mp4"
+  },
+  {
+    "time": 1795071339532,
+    "session": "ses_gffe5e118f9885ffe9JYRPGWycCu63g",
+    "filename": "flow.mp4",
+    "delivered": "/home/kangy/MyProjects/OpenCV-项目书/底层算法演示/光流法/assets/flow.mp4"
+  }
+]

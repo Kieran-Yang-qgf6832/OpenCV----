@@ -17,3 +17,6 @@ cv2.line(), cv2.circle(), cv2.rectangle(), cv2.putText()
 
 ## 输出
 绘制后图像
+
+## 素材
+`assets/`：`canvas.png`

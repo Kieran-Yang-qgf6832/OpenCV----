@@ -17,3 +17,6 @@ cv2.pointPolygonTest()
 
 ## 输出
 位置关系和距离
+
+## 素材
+`assets/`：`binary.png`、`shapes.png`

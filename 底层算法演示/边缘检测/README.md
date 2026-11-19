@@ -17,3 +17,6 @@ cv2.Sobel(), cv2.Laplacian(), cv2.Canny()
 
 ## 输出
 边缘图像
+
+## 素材
+`assets/`：`scene.png`

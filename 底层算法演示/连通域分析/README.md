@@ -17,3 +17,6 @@ cv2.connectedComponents(), cv2.connectedComponentsWithStats()
 
 ## 输出
 标记图和统计信息
+
+## 素材
+`assets/`：`binary.png`、`text.png`

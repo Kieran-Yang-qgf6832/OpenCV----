@@ -17,3 +17,6 @@ cv2.moments(), cv2.HuMoments()
 
 ## 输出
 矩特征
+
+## 素材
+`assets/`：`binary.png`、`shapes.png`

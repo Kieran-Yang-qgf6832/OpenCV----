@@ -17,3 +17,6 @@ cv2.convexHull(), cv2.convexityDefects()
 
 ## 输出
 凸包和凸缺陷
+
+## 素材
+`assets/`：`binary.png`、`shapes.png`

@@ -17,3 +17,6 @@ cv2.ORB_create(), cv2.SIFT_create(), cv2.FastFeatureDetector_create()
 
 ## 输出
 关键点坐标和可视化
+
+## 素材
+`assets/`：`books.png`

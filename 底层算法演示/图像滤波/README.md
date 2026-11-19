@@ -17,3 +17,6 @@ cv2.GaussianBlur(), cv2.medianBlur(), cv2.bilateralFilter()
 
 ## 输出
 滤波后图像
+
+## 素材
+`assets/`：`texture.png`

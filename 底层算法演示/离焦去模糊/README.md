@@ -17,3 +17,6 @@
 
 ## 输出
 复原图像
+
+## 素材
+`assets/`：`blurred.png`、`sharp.png`

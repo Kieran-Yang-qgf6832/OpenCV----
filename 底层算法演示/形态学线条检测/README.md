@@ -17,3 +17,6 @@ cv2.morphologyEx(), cv2.getStructuringElement()
 
 ## 输出
 检测到的线条
+
+## 素材
+`assets/`：`table.png`

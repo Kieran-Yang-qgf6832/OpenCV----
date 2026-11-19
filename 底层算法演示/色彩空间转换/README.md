@@ -17,3 +17,6 @@ cv2.cvtColor()
 
 ## 输出
 各通道图
+
+## 素材
+`assets/`：`fruits.png`

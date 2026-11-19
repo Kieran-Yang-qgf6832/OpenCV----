@@ -17,3 +17,6 @@ cv2.createBackgroundSubtractorMOG2(), cv2.createBackgroundSubtractorKNN()
 
 ## 输出
 前景掩码
+
+## 素材
+`assets/`：`frame.png`

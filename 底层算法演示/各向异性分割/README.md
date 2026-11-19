@@ -17,3 +17,6 @@ cv2.ximgproc.anisotropicDiffusion()
 
 ## 输出
 边缘保持的平滑图像
+
+## 素材
+`assets/`：`noisy.png`、`smooth.png`

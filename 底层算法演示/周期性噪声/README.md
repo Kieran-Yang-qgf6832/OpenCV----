@@ -17,3 +17,6 @@ cv2.dft(), 频域掩码
 
 ## 输出
 去噪图像
+
+## 素材
+`assets/`：`periodic_noise.png`、`photo.png`

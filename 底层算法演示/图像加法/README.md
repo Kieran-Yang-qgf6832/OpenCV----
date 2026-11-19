@@ -17,3 +17,6 @@ cv2.add(), cv2.addWeighted()
 
 ## 输出
 融合图像
+
+## 素材
+`assets/`：`image_a.png`、`image_b.png`

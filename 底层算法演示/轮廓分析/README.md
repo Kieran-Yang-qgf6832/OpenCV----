@@ -17,3 +17,6 @@ cv2.findContours(), cv2.contourArea(), cv2.boundingRect()
 
 ## 输出
 轮廓列表和可视化
+
+## 素材
+`assets/`：`binary.png`、`shapes.png`

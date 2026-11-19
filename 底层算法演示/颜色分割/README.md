@@ -17,3 +17,6 @@ cv2.cvtColor(), cv2.inRange(), cv2.bitwise_and()
 
 ## 输出
 分割掩码和提取结果
+
+## 素材
+`assets/`：`apples.png`

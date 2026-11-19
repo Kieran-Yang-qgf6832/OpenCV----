@@ -17,3 +17,6 @@ cv2.Feature2D.detect()
 
 ## 输出
 关键点列表
+
+## 素材
+`assets/`：`building.png`

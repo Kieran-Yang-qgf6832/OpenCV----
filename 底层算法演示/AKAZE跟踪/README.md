@@ -17,3 +17,6 @@ cv2.AKAZE_create(), cv2.BFMatcher()
 
 ## 输出
 跟踪结果
+
+## 素材
+`assets/`：`frame_01.png`、`frame_02.png`（单帧静图）、`tracking.mp4`（100 帧 / 25 fps / 4 秒，镜头平移并轻微缩小的连续序列）

@@ -17,3 +17,6 @@ cv2.pyrDown(), cv2.pyrUp()
 
 ## 输出
 金字塔层级图像
+
+## 素材
+`assets/`：`skyline.png`

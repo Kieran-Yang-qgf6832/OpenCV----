@@ -17,3 +17,6 @@ cv2.calcOpticalFlowPyrLK(), cv2.calcOpticalFlowFarneback()
 
 ## 输出
 光流矢量场
+
+## 素材
+`assets/`：`frame_01.png`、`frame_02.png`（单帧静图）、`flow.mp4`（100 帧 / 25 fps / 4 秒，匀速平移的连续帧序列）

@@ -17,3 +17,6 @@ cv2.matchTemplate(), cv2.minMaxLoc()
 
 ## 输出
 匹配位置和热力图
+
+## 素材
+`assets/`：`scene.png`、`template.png`

@@ -17,3 +17,6 @@ cv2.randu(), cv2.putText()
 
 ## 输出
 随机生成图像
+
+## 素材
+`assets/`：`canvas.png`

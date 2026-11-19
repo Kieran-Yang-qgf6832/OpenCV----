@@ -17,3 +17,6 @@ cv2.cornerSubPix()
 
 ## 输出
 亚像素角点坐标
+
+## 素材
+`assets/`：`checkerboard.png`

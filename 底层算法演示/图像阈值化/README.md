@@ -17,3 +17,6 @@ cv2.threshold(), cv2.adaptiveThreshold()
 
 ## 输出
 二值图像
+
+## 素材
+`assets/`：`paper.png`

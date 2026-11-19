@@ -17,3 +17,6 @@ cv2.grabCut()
 
 ## 输出
 前景分割结果
+
+## 素材
+`assets/`：`subject.png`

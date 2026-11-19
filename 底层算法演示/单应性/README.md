@@ -17,3 +17,6 @@ cv2.findHomography(), cv2.warpPerspective()
 
 ## 输出
 3x3单应矩阵
+
+## 素材
+`assets/`：`poster.png`、`poster_perspective.png`

@@ -17,3 +17,6 @@ cv2.dft(), cv2.idft(), cv2.magnitude()
 
 ## 输出
 频谱图和滤波结果
+
+## 素材
+`assets/`：`texture.png`

@@ -17,3 +17,6 @@ cv2.distanceTransform()
 
 ## 输出
 距离图
+
+## 素材
+`assets/`：`binary.png`

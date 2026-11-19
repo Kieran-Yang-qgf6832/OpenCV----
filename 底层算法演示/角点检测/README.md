@@ -17,3 +17,6 @@ cv2.cornerHarris(), cv2.goodFeaturesToTrack()
 
 ## 输出
 角点位置
+
+## 素材
+`assets/`：`brick.png`

@@ -17,3 +17,6 @@ cv2.Feature2D.compute()
 
 ## 输出
 描述子矩阵
+
+## 素材
+`assets/`：`church.png`
