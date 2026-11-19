@@ -11,9 +11,45 @@
 #include <vector>
 
 #include <opencv2/opencv.hpp>
+#include <opencv2/core/utils/filesystem.hpp>
 
 /// 目标最小面积（像素）。小于该面积的轮廓视为噪声，可被过滤。
 static const double kMinTargetArea = 500.0;
+
+/**
+ * @brief  在若干候选位置中查找素材，便于从不同工作目录运行。
+ * @param  fileName 素材文件名。
+ * @return 第一个存在的路径；都不存在时返回候选列表的第一项。
+ */
+std::string locateAsset(const std::string& fileName)
+{
+    const std::vector<std::string> candidates = {
+        "../../assets/" + fileName, "../assets/" + fileName, "assets/" + fileName};
+    for (const auto& path : candidates) {
+        if (cv::utils::fs::exists(path)) {
+            return path;
+        }
+    }
+    return candidates.front();
+}
+
+/**
+ * @brief  由素材路径推导输出目录：<demo>/assets/x.mp4 -> <demo>/output。
+ * @param  inputPath 素材路径。
+ * @return 输出目录路径。
+ */
+std::string outputDirFor(const std::string& inputPath)
+{
+    std::string dir = inputPath;
+    const size_t slash = dir.find_last_of("/\\");
+    dir = (slash == std::string::npos) ? "." : dir.substr(0, slash);
+    const size_t slash2 = dir.find_last_of("/\\");
+    const std::string leaf = (slash2 == std::string::npos) ? dir : dir.substr(slash2 + 1);
+    if (leaf == "assets") {
+        dir = (slash2 == std::string::npos) ? "." : dir.substr(0, slash2);
+    }
+    return dir + "/output";
+}
 
 /**
  * @brief  创建背景减除器。
@@ -99,21 +135,32 @@ cv::Mat drawTargets(const cv::Mat& mask, const std::vector<std::vector<cv::Point
  */
 int main(int argc, char** argv)
 {
+    // 注意：OpenCV 4.6 的 CommandLineParser 只接受 --key=value / -k=value，
+    // 写成 --input xxx 会把 xxx 当成位置参数而忽略，因此这里不使用 @位置参数。
     const cv::String keys =
-        "{help h usage ? |                           | 打印帮助信息 }"
-        "{@input        | ../../1789295519752..mp4  | 输入视频路径 }"
-        "{m method      | MOG2                      | 背景减除方法: MOG2 或 KNN }"
-        "{o output      |                           | 前景掩码输出视频路径, 缺省为 <输入目录>/mask_<方法>.mp4 }"
-        "{d display     | 0                         | 是否弹窗显示 (1=显示, 0=不显示) }";
+        "{help h usage ? |      | 打印帮助信息 }"
+        "{i input        |      | 输入视频路径, 缺省读取 assets/car_passing.mp4 }"
+        "{m method       | MOG2 | 背景减除方法: MOG2 或 KNN }"
+        "{o output       |      | 前景掩码输出视频路径, 缺省写入 <目录>/output/mask_<方法>.mp4 }"
+        "{d display      | 0    | 是否弹窗显示 (1=显示, 0=不显示) }";
 
     cv::CommandLineParser parser(argc, argv, keys);
-    parser.about("背景减除演示：从视频序列中分离前景运动物体");
+    parser.about("背景减除演示：从视频序列中分离前景运动物体\n"
+                 "参数请使用 --key=value 形式，例如 --method=MOG2 --display=1");
     if (parser.has("help")) {
         parser.printMessage();
         return 0;
     }
+    if (!parser.check()) {
+        parser.printErrors();
+        parser.printMessage();
+        return -1;
+    }
 
-    const std::string inputPath = parser.get<std::string>("@input");
+    std::string inputPath = parser.get<std::string>("input");
+    if (inputPath.empty()) {
+        inputPath = locateAsset("car_passing.mp4");
+    }
     const std::string method = parser.get<std::string>("method");
     const bool display = parser.get<int>("display") != 0;
 
@@ -128,12 +175,12 @@ int main(int argc, char** argv)
     const int width = static_cast<int>(cap.get(cv::CAP_PROP_FRAME_WIDTH));
     const int height = static_cast<int>(cap.get(cv::CAP_PROP_FRAME_HEIGHT));
 
-    // 输出路径缺省为：<输入视频所在目录>/mask_<方法>.mp4
+    // 输出路径缺省为：<目录>/output/mask_<方法>.mp4
     std::string outputPath = parser.get<std::string>("output");
     if (outputPath.empty()) {
-        const size_t pos = inputPath.find_last_of("/\\");
-        const std::string dir = (pos == std::string::npos) ? "" : inputPath.substr(0, pos + 1);
-        outputPath = dir + "mask_" + method + ".mp4";
+        const std::string outDir = outputDirFor(inputPath);
+        cv::utils::fs::createDirectories(outDir);
+        outputPath = outDir + "/mask_" + method + ".mp4";
     }
 
     cv::VideoWriter writer;

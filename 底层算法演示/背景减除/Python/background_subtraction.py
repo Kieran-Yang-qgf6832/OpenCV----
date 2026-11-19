@@ -15,6 +15,35 @@ import cv2
 MIN_TARGET_AREA = 500
 
 
+def locate_asset(file_name):
+    """
+    @brief  在若干候选位置中查找素材，便于从不同工作目录运行。
+    @param  file_name 素材文件名。
+    @return 第一个存在的路径；都不存在时返回候选列表的第一项。
+    """
+    candidates = [
+        os.path.join("..", "..", "assets", file_name),
+        os.path.join("..", "assets", file_name),
+        os.path.join("assets", file_name),
+    ]
+    for path in candidates:
+        if os.path.exists(path):
+            return path
+    return candidates[0]
+
+
+def output_dir_for(input_path):
+    """
+    @brief  由素材路径推导输出目录：<demo>/assets/x.mp4 -> <demo>/output。
+    @param  input_path 素材路径。
+    @return 输出目录路径。
+    """
+    directory = os.path.dirname(input_path)
+    if os.path.basename(directory) == "assets":
+        directory = os.path.dirname(directory)
+    return os.path.join(directory, "output") if directory else "output"
+
+
 def create_subtractor(method):
     """
     @brief  创建背景减除器。
@@ -81,17 +110,17 @@ def draw_targets(mask, targets):
 
 def main():
     """@brief 主流程：解析参数、逐帧背景减除、保存掩码并可选显示。"""
-    default_input = os.path.join(
-        os.path.dirname(os.path.abspath(__file__)), "..", "1789295519752..mp4"
-    )
+    default_input = locate_asset("car_passing.mp4")
     parser = argparse.ArgumentParser(
         description="背景减除演示：从视频序列中分离前景运动物体"
     )
-    parser.add_argument("-i", "--input", default=default_input, help="输入视频路径")
+    parser.add_argument("-i", "--input", default=default_input,
+                        help="输入视频路径（缺省 assets/car_passing.mp4）")
     parser.add_argument(
         "-m", "--method", choices=["MOG2", "KNN"], default="MOG2", help="背景减除方法"
     )
-    parser.add_argument("-o", "--output", default=None, help="前景掩码输出视频路径")
+    parser.add_argument("-o", "--output", default=None,
+                        help="前景掩码输出视频路径（缺省 <目录>/output/mask_<方法>.mp4）")
     parser.add_argument(
         "-d", "--display", action="store_true", help="弹窗显示（默认关闭）"
     )
@@ -106,10 +135,13 @@ def main():
     width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
-    # 输出路径缺省为：<输入视频所在目录>/mask_<方法>.mp4
-    output = args.output or os.path.join(
-        os.path.dirname(os.path.abspath(args.input)), "mask_{}.mp4".format(args.method)
-    )
+    # 输出路径缺省为：<目录>/output/mask_<方法>.mp4
+    if args.output:
+        output = args.output
+    else:
+        out_dir = output_dir_for(args.input)
+        os.makedirs(out_dir, exist_ok=True)
+        output = os.path.join(out_dir, "mask_{}.mp4".format(args.method))
     writer = cv2.VideoWriter(
         output, cv2.VideoWriter_fourcc(*"mp4v"), fps, (width, height), isColor=False
     )
