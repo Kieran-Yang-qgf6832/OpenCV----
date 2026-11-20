@@ -9,3 +9,14 @@ Makefile
 *.o
 *.a
 *.so
+
+# 下载的模型权重：体积大且可重新下载，来源见各选题 README
+_models/
+
+# Python 缓存
+__pycache__/
+*.pyc
+.ruff_cache/
+
+# 视频编码中转文件
+*.tmp.mp4

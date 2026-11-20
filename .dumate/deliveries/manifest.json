@@ -28,5 +28,17 @@
     "session": "ses_gffe5e118f9885ffe9JYRPGWycCu63g",
     "filename": "corner_subpixel_check.png",
     "delivered": "/tmp/corner_subpixel_check.png"
+  },
+  {
+    "time": 1795173784320,
+    "session": "ses_gffe5e118f9885ffe9JYRPGWycCu63g",
+    "filename": "app_assets_manifest.csv",
+    "delivered": "/tmp/app_assets_manifest.csv"
+  },
+  {
+    "time": 1795174536387,
+    "session": "ses_gffe5e118f9885ffe9JYRPGWycCu63g",
+    "filename": "app_output_manifest.csv",
+    "delivered": "/tmp/app_output_manifest.csv"
   }
 ]
